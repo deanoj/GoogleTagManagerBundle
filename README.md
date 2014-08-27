@@ -3,6 +3,8 @@
 This bundle exposes a service that makes it easy to add data layer values from any controller. Twig functions make
 it easy to output the HTML in your templates.
 
+[![Build Status](https://travis-ci.org/deanoj/GoogleTagManagerBundle.svg?branch=master)](https://travis-ci.org/deanoj/GoogleTagManagerBundle)
+
 ## Installation via Composer
 
 Add the following to the repositories section of your composer.json
