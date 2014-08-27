@@ -14,10 +14,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.5.*",
-        "twig/extensions": "~1.0",
-        "sensio/distribution-bundle": "~3.0",
-        "sensio/framework-extra-bundle": "~3.0"
+        "symfony/symfony": "2.5.*"
     },
     "autoload" : {
         "psr-0" : {
