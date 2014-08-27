@@ -1,9 +1,28 @@
 language: php
+
 php:
-    - 5.3
-    - 5.4
+  - 5.3
+  - 5.4
+  - 5.5
+  - hhvm
+
+matrix:
+  include:
+    - php: 5.5
+      env: SYMFONY_VERSION='2.3.* symfony/expression-language:2.4.*'
+    - php: 5.5
+      env: SYMFONY_VERSION=2.4.*
+    - php: 5.5
+      env: SYMFONY_VERSION='dev-master'
 
 before_script:
-    - wget http://getcomposer.org/composer.phar
-    - php composer.phar install
-    - phpunit
+  - composer self-update
+  - sh -c 'if [ "$SYMFONY_VERSION" != "" ]; then composer require --dev --no-update symfony/symfony=$SYMFONY_VERSION; fi;'
+  - composer update --prefer-source
+
+script:
+  - phpunit
+
+notifications:
+  email:
+    - deanoj@deanoj.com
