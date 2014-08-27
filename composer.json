@@ -1,0 +1,33 @@
+{
+    "name" : "deanoj/GoogleTagManagerBundle",
+    "description" : "Implement Google Tag Manager in your project",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "deanoj",
+        "email" : "deanoj@deanoj.com"
+    }],
+    "keywords" : [
+        "deanoj google tag manager"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.5.*",
+        "twig/extensions": "~1.0",
+        "sensio/distribution-bundle": "~3.0",
+        "sensio/framework-extra-bundle": "~3.0"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Deanoj\\GoogleTagManagerBundle" : ""
+        }
+    },
+    "target-dir" : "Deanoj/GoogleTagManagerBundle",
+    "extra" : {
+        "branch-alias" : {
+            "dev-master" : "2.2-dev"
+        }
+    }
+}

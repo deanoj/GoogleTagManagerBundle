@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="deanoj.google_tag_manager.data_layer" class="Deanoj\GoogleTagManagerBundle\DataLayer">
+        </service>
+        <service id="deanoj.twig.gtm_extension" class="Deanoj\GoogleTagManagerBundle\Twig\TagManagerExtension">
+            <tag name="twig.extension" />
+            <argument type="service" id="deanoj.google_tag_manager.data_layer" />
+            <argument>%google_tag_manager_code%</argument>
+        </service>
+    </services>
+
+</container>
