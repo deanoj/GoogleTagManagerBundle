@@ -3,7 +3,41 @@
 This bundle exposes a service that makes it easy to add data layer values from any controller. Twig functions make
 it easy to output the HTML in your templates.
 
-## Installation
+## Installation via Composer
+
+Add the following to the repositories section of your composer.json
+
+	{
+		"type" : "vcs",
+		"url" : "https://github.com/deanoj/googletagmanagerbundle.git"
+	}
+	
+Add the following the require section
+
+	"deanoj/googletagmanagerbundle": "dev-master"
+	
+## Add the bundle to your kernel
+
+	use Symfony\Component\HttpKernel\Kernel;
+
+	class AppKernel extends Kernel
+	{
+		public function registerBundles()
+		{
+			$bundles = array(
+				// ...
+				new Deanoj\ContactBundle\DeanojContactBundle(),
+				// ...
+			);
+			
+			return $bundles;
+		}
+		// ...
+	}
+	
+## Add the tag manager tracking code to your parameters file
+
+	google_tag_manager_code:	GTM-XXXXXX
 
 ## Usage
 
