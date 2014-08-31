@@ -16,6 +16,10 @@ class TagManagerExtension  extends \Twig_Extension
 
     private $tagManagerCode;
 
+    private $tagTemplate = 'DeanojGoogleTagManagerBundle:Default:tag.html.twig';
+
+    private $dataLayerTemplate = 'DeanojGoogleTagManagerBundle:Default:data_layer.html.twig';
+
     public function initRuntime(\Twig_Environment $environment)
     {
         $this->environment = $environment;
@@ -37,7 +41,7 @@ class TagManagerExtension  extends \Twig_Extension
 
     public function tagFunction()
     {
-        return $this->environment->render('DeanojGoogleTagManagerBundle:Default:tag.html.twig', array(
+        return $this->environment->render($this->tagTemplate, array(
             'tag_manager_code' => $this->tagManagerCode
         ));
     }
@@ -46,7 +50,7 @@ class TagManagerExtension  extends \Twig_Extension
     {
         $dataLayer = $this->dataLayer->getItems();
 
-        return $this->environment->render('DeanojGoogleTagManagerBundle:Default:data_layer.html.twig', array(
+        return $this->environment->render($this->dataLayerTemplate, array(
             'data_layer' => json_encode(array_merge($dataLayer, $values), JSON_FORCE_OBJECT)
         ));
     }
@@ -55,4 +59,24 @@ class TagManagerExtension  extends \Twig_Extension
     {
         return 'deanoj_google_tag_manager_extension';
     }
+
+    /**
+     * Set the tag template name - to support unit test
+     * @param $tagTemplate
+     */
+    public function setTagTemplate($tagTemplate)
+    {
+        $this->tagTemplate = $tagTemplate;
+    }
+
+    /**
+     * Set the data layer template name - to support unit test
+     * @param $dataLayerTemplate
+     */
+    public function setDataLayerTemplate($dataLayerTemplate)
+    {
+        $this->dataLayerTemplate = $dataLayerTemplate;
+    }
+
+
 }

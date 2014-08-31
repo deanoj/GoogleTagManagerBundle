@@ -29,7 +29,7 @@ class DataLayer {
      */
     public function getJsonString()
     {
-        return json_encode($this->items, JSON_FORCE_OBJECT);
+        return json_encode($this->items);
     }
 
     /**
