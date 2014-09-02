@@ -37,18 +37,12 @@ Add the following the require section
 		// ...
 	}
 
-## Update your parameters file
-
-Specify the tag manager tracking code in your parameters.yml file.
-
-	google_tag_manager_code:	GTM-XXXXXX
-
 ## Usage
 
 Output the tag in your template. The data layer must always be placed before the main tag in the template
 
     {{ gtm_data_layer() }}
-    {{ gtm_tag() }}
+    {{ gtm_tag('GTM-XXXXXX') }}
 
 Add data layer variables from the template layer. This will ensure they are present on every page.
 

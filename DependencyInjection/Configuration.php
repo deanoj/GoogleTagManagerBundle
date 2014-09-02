@@ -18,13 +18,6 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('deanoj_google_tag_manager');
-
-        $rootNode
-            ->children()
-                ->scalarNode('google_tag_manager_code')->end()
-            ->end()
-        ;
 
         return $treeBuilder;
     }

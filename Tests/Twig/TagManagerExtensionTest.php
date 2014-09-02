@@ -13,13 +13,15 @@ use Deanoj\GoogleTagManagerBundle\DataLayer;
 
 class TagManagerExtensionTest extends \PHPUnit_Framework_TestCase {
 
+    private $tagManagerCode = 'GTM-XXXXXX';
+
     public function testTagFunction()
     {
         $loader = new \Twig_Loader_Filesystem(dirname(__FILE__).'/../../Resources/views/Default');
         $twig = new \Twig_Environment($loader);
 
         $dataLayer = new DataLayer();
-        $tag = new TagManagerExtension($dataLayer, 'GTM-XXXXXX');
+        $tag = new TagManagerExtension($dataLayer);
         $tag->initRuntime($twig);
         $tag->setTagTemplate('tag.html.twig'); // override template name
 
@@ -35,7 +37,7 @@ class TagManagerExtensionTest extends \PHPUnit_Framework_TestCase {
 <!-- End Google Tag Manager -->
 EOT;
 
-        $this->assertEquals($expected, $tag->tagFunction());
+        $this->assertEquals($expected, $tag->tagFunction($this->tagManagerCode));
     }
 
     public function testDataLayerFunction()
@@ -45,7 +47,7 @@ EOT;
 
         $dataLayer = new DataLayer();
         $dataLayer->addItems(array('foo' => 'bar', 'apple' => 'green'));
-        $tag = new TagManagerExtension($dataLayer, 'GTM-XXXXXX');
+        $tag = new TagManagerExtension($dataLayer);
         $tag->initRuntime($twig);
 
         $tag->setDataLayerTemplate('data_layer.html.twig'); // override template name
@@ -67,7 +69,7 @@ EOT;
 
         $dataLayer = new DataLayer();
         $dataLayer->addItems(array('foo' => 'bar', 'apple' => 'green'));
-        $tag = new TagManagerExtension($dataLayer, 'GTM-XXXXXX');
+        $tag = new TagManagerExtension($dataLayer);
         $tag->initRuntime($twig);
 
         $tag->setDataLayerTemplate('data_layer.html.twig'); // override template name

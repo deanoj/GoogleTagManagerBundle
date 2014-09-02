@@ -14,8 +14,6 @@ class TagManagerExtension  extends \Twig_Extension
 
     private $dataLayer;
 
-    private $tagManagerCode;
-
     private $tagTemplate = 'DeanojGoogleTagManagerBundle:Default:tag.html.twig';
 
     private $dataLayerTemplate = 'DeanojGoogleTagManagerBundle:Default:data_layer.html.twig';
@@ -25,10 +23,9 @@ class TagManagerExtension  extends \Twig_Extension
         $this->environment = $environment;
     }
 
-    public function __construct($dataLayerService, $tagManagerCode)
+    public function __construct($dataLayerService)
     {
         $this->dataLayer = $dataLayerService;
-        $this->tagManagerCode = $tagManagerCode;
     }
 
     public function getFunctions()
@@ -39,10 +36,10 @@ class TagManagerExtension  extends \Twig_Extension
         );
     }
 
-    public function tagFunction()
+    public function tagFunction($tagManagerCode)
     {
         return $this->environment->render($this->tagTemplate, array(
-            'tag_manager_code' => $this->tagManagerCode
+            'tag_manager_code' => $tagManagerCode
         ));
     }
 

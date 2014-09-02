@@ -10,7 +10,6 @@
         <service id="deanoj.twig.gtm_extension" class="Deanoj\GoogleTagManagerBundle\Twig\TagManagerExtension">
             <tag name="twig.extension" />
             <argument type="service" id="deanoj.google_tag_manager.data_layer" />
-            <argument>%google_tag_manager_code%</argument>
         </service>
     </services>
 
